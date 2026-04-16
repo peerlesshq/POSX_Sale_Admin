@@ -1,0 +1,98 @@
+.px-risk-modal .ant-modal-body {
+  padding: 0 !important;
+}
+
+.px-risk {
+  padding: 24px 24px 4px;
+}
+
+.px-risk__header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.px-risk__icon {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--px-radius-md);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.px-risk--critical .px-risk__icon {
+  background: var(--px-status-err-soft);
+  color: var(--px-status-err);
+}
+.px-risk--high .px-risk__icon {
+  background: var(--px-status-warn-soft);
+  color: var(--px-status-warn);
+}
+.px-risk--medium .px-risk__icon {
+  background: var(--px-brand-soft);
+  color: var(--px-brand);
+}
+
+.px-risk__title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--px-text-primary);
+  letter-spacing: -0.005em;
+}
+
+.px-risk__description {
+  margin-top: 4px;
+  font-size: 13px;
+  color: var(--px-text-secondary);
+  line-height: 1.55;
+}
+
+.px-risk__consequences {
+  background: var(--px-bg-inset);
+  border: 1px solid var(--px-border-subtle);
+  border-radius: var(--px-radius-md);
+  padding: 12px 14px;
+  margin-bottom: 14px;
+}
+.px-risk__consequences-title {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--px-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+}
+.px-risk__consequences ul {
+  margin: 0;
+  padding-left: 18px;
+}
+.px-risk__consequences li {
+  font-size: 12px;
+  color: var(--px-text-secondary);
+  line-height: 1.6;
+}
+
+.px-risk__field {
+  margin-bottom: 14px;
+}
+.px-risk__children {
+  margin-bottom: 14px;
+}
+.px-risk__label {
+  display: block;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--px-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+}
+
+.px-risk--critical .px-risk__field input,
+.px-risk--critical .px-risk__field textarea {
+  border-color: var(--px-status-err-border) !important;
+}

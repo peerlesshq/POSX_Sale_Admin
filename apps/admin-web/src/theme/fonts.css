@@ -1,0 +1,51 @@
+/**
+ * Font loading. We self-host via @fontsource so there is no runtime
+ * dependency on Google Fonts, and the bundle ships with consistent
+ * rendering in every environment (staging/local/office offline).
+ *
+ * Inter Variable covers weight 100–900 in a single file; JetBrains
+ * Mono is used for wallet / tx hash / order id rendering.
+ *
+ * NOTE: the actual @fontsource packages are side-effect imports in
+ * main.tsx — this file only sets the base typographic stack and
+ * tabular-numeral rules applied globally.
+ */
+
+html,
+body {
+  font-family: var(--px-font-sans);
+  font-size: var(--px-text-md);
+  line-height: var(--px-leading-normal);
+  color: var(--px-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings:
+    'cv11' on, /* single-story a */
+    'ss01' on, /* alt 0 */
+    'ss03' on; /* alt g */
+}
+
+/**
+ * Tabular numerals — enforced on every financial surface automatically.
+ * Components that render currencies / counts / deltas inherit this.
+ * JSX can opt out with style={{ fontVariantNumeric: 'normal' }} if ever
+ * needed (rare).
+ */
+.px-tabular,
+.px-amount,
+.px-count,
+.px-kpi__value,
+.px-kpi__delta,
+.ant-table-cell,
+.ant-statistic-content-value {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' on, 'lnum' on;
+}
+
+.px-mono,
+.px-hash,
+.px-wallet {
+  font-family: var(--px-font-mono);
+  font-feature-settings: 'tnum' on, 'zero' on;
+}

@@ -1,0 +1,200 @@
+.px-topbar {
+  height: var(--px-topbar-height);
+  background: var(--px-bg-surface);
+  border-bottom: 1px solid var(--px-border-subtle);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 24px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: saturate(180%) blur(8px);
+}
+
+.px-topbar__left {
+  flex-shrink: 0;
+  min-width: 0;
+}
+
+.px-topbar__crumbs {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  color: var(--px-text-tertiary);
+}
+.px-topbar__crumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.px-topbar__crumbs a {
+  color: var(--px-text-secondary);
+  text-decoration: none;
+  transition: color var(--px-transition-fast);
+}
+.px-topbar__crumbs a:hover {
+  color: var(--px-text-primary);
+}
+.px-topbar__crumb-sep {
+  color: var(--px-text-muted);
+}
+.px-topbar__crumb-current {
+  color: var(--px-text-primary);
+  font-weight: 500;
+}
+
+/* Center — search launcher */
+.px-topbar__center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  min-width: 0;
+}
+
+.px-search-launcher {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 520px;
+  height: 34px;
+  padding: 0 14px;
+  background: var(--px-bg-inset);
+  border: 1px solid var(--px-border);
+  border-radius: var(--px-radius-md);
+  color: var(--px-text-tertiary);
+  font-size: 13px;
+  cursor: text;
+  transition:
+    border-color var(--px-transition-fast),
+    background var(--px-transition-fast);
+}
+.px-search-launcher:hover {
+  border-color: var(--px-border-strong);
+  background: var(--px-bg-surface-raised);
+}
+
+.px-search-launcher__icon {
+  color: var(--px-text-muted);
+  flex-shrink: 0;
+}
+
+.px-search-launcher__placeholder {
+  flex: 1;
+  text-align: left;
+  color: var(--px-text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Right controls */
+.px-topbar__right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.px-topbar__env-tag {
+  padding: 2px 8px;
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+  border-radius: var(--px-radius-sm);
+  background: var(--px-status-info-soft);
+  color: var(--px-status-info);
+  border: 1px solid var(--px-status-info-border);
+}
+.px-topbar__env-tag[data-env='production'] {
+  background: var(--px-status-err-soft);
+  color: var(--px-status-err);
+  border-color: var(--px-status-err-border);
+}
+.px-topbar__env-tag[data-env='staging'] {
+  background: var(--px-status-warn-soft);
+  color: var(--px-status-warn);
+  border-color: var(--px-status-warn-border);
+}
+
+.px-topbar__icon-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 32px;
+  height: 32px;
+  padding: 0 8px;
+  background: transparent;
+  border: 1px solid var(--px-border);
+  color: var(--px-text-secondary);
+  border-radius: var(--px-radius-md);
+  cursor: pointer;
+  transition: all var(--px-transition-fast);
+}
+.px-topbar__icon-btn:hover {
+  background: var(--px-bg-surface-raised);
+  border-color: var(--px-border-strong);
+  color: var(--px-text-primary);
+}
+.px-topbar__icon-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.px-topbar__icon-btn-text {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.px-topbar__account {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 32px;
+  padding: 0 8px 0 4px;
+  background: transparent;
+  border: 1px solid var(--px-border);
+  border-radius: var(--px-radius-md);
+  cursor: pointer;
+  color: var(--px-text-primary);
+  transition: background var(--px-transition-fast);
+}
+.px-topbar__account:hover {
+  background: var(--px-bg-surface-raised);
+}
+
+.px-topbar__avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #5b5bff 0%, #a855f7 100%);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.px-topbar__account-text {
+  text-align: left;
+  min-width: 0;
+}
+.px-topbar__account-name {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--px-text-primary);
+  line-height: 1.2;
+  white-space: nowrap;
+}
+.px-topbar__account-role {
+  font-size: 10.5px;
+  color: var(--px-text-tertiary);
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.px-topbar__account-chev {
+  color: var(--px-text-muted);
+}

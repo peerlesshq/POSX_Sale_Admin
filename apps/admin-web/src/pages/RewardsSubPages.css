@@ -1,0 +1,29 @@
+/* Rewards sub-pages analytics layout */
+
+.rw-page {
+  padding-bottom: 40px;
+}
+
+.rw-kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.rw-charts {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.rw-charts--single {
+  grid-template-columns: 1fr;
+}
+
+@media (max-width: 1180px) {
+  .rw-charts {
+    grid-template-columns: 1fr;
+  }
+}

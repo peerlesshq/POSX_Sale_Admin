@@ -1,0 +1,311 @@
+/**
+ * Global reset + base layer. Loaded after tokens.css and fonts.css.
+ *
+ * AntD ships its own reset; we override the bits that conflict with a
+ * dark fintech surface (backgrounds, scroll, focus ring). Page-level
+ * CSS should NEVER set body background or default font.
+ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+html {
+  background: var(--px-bg-app);
+  color-scheme: dark;
+}
+
+html[data-theme='light'] {
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  background: var(--px-bg-app);
+  color: var(--px-text-primary);
+  overflow-x: hidden;
+}
+
+/* ------------------------------------------------------------------
+ * Scrollbars — subtle, theme-aware, no clunky default look
+ * ------------------------------------------------------------------ */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--px-border-strong) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--px-border-strong);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--px-text-muted);
+  background-clip: content-box;
+}
+
+/* ------------------------------------------------------------------
+ * Focus ring
+ * ------------------------------------------------------------------ */
+*:focus-visible {
+  outline: 2px solid var(--px-border-focus);
+  outline-offset: 2px;
+  border-radius: var(--px-radius-xs);
+}
+
+/* ------------------------------------------------------------------
+ * AntD overrides — bring the framework into our token system instead
+ * of fighting it per-component. We only touch the bits that render
+ * visibly and aren't already covered by ConfigProvider theme.
+ *
+ * Phase 5 cleanup (DS-09): the original `.ant-pro-*` override block
+ * was removed because the shell was rebuilt without ProLayout in
+ * Phase 7 and those selectors no longer match anything.
+ * ------------------------------------------------------------------ */
+.ant-layout {
+  background: var(--px-bg-app) !important;
+}
+
+/* Table — soft row banding, bordered header, tabular numerals */
+.ant-table {
+  background: transparent !important;
+  color: var(--px-text-primary) !important;
+}
+.ant-table-thead > tr > th {
+  background: var(--px-bg-surface-raised) !important;
+  color: var(--px-text-secondary) !important;
+  font-weight: var(--px-weight-medium) !important;
+  font-size: var(--px-text-sm) !important;
+  letter-spacing: 0.02em;
+  text-transform: none !important;
+  border-bottom: 1px solid var(--px-border) !important;
+}
+.ant-table-tbody > tr > td {
+  background: var(--px-bg-surface) !important;
+  border-bottom: 1px solid var(--px-border-subtle) !important;
+  font-size: var(--px-text-base) !important;
+}
+.ant-table-tbody > tr:hover > td {
+  background: var(--px-bg-hover) !important;
+}
+.ant-table-cell-row-hover {
+  background: var(--px-bg-hover) !important;
+}
+.ant-table-placeholder,
+.ant-table-placeholder:hover > td {
+  background: var(--px-bg-surface) !important;
+}
+.ant-table-pagination.ant-pagination {
+  margin: 16px 0 0 !important;
+}
+
+/* Modals */
+.ant-modal-content,
+.ant-modal-header,
+.ant-modal-body {
+  background: var(--px-bg-surface-raised) !important;
+}
+.ant-modal-content {
+  border: 1px solid var(--px-border) !important;
+  box-shadow: var(--px-shadow-xl) !important;
+  border-radius: var(--px-radius-lg) !important;
+}
+.ant-modal-title {
+  color: var(--px-text-primary) !important;
+  font-weight: var(--px-weight-semibold) !important;
+}
+.ant-modal-close {
+  color: var(--px-text-tertiary) !important;
+}
+.ant-modal-close:hover {
+  color: var(--px-text-primary) !important;
+}
+
+/* Drawer */
+.ant-drawer-content {
+  background: var(--px-bg-surface) !important;
+}
+.ant-drawer-header {
+  border-bottom: 1px solid var(--px-border-subtle) !important;
+}
+.ant-drawer-title {
+  color: var(--px-text-primary) !important;
+}
+
+/* Popover / Tooltip */
+.ant-popover-inner,
+.ant-tooltip-inner {
+  background: var(--px-bg-surface-overlay) !important;
+  border: 1px solid var(--px-border) !important;
+  border-radius: var(--px-radius-md) !important;
+  box-shadow: var(--px-shadow-lg) !important;
+  color: var(--px-text-primary) !important;
+  font-size: var(--px-text-sm) !important;
+}
+
+/* Select dropdown */
+.ant-select-dropdown {
+  background: var(--px-bg-surface-overlay) !important;
+  border: 1px solid var(--px-border) !important;
+  border-radius: var(--px-radius-md) !important;
+  box-shadow: var(--px-shadow-lg) !important;
+}
+
+/* Input / Textarea */
+.ant-input,
+.ant-input-affix-wrapper,
+.ant-picker,
+.ant-select-selector,
+.ant-input-number {
+  background: var(--px-bg-inset) !important;
+  border-color: var(--px-border) !important;
+  color: var(--px-text-primary) !important;
+}
+.ant-input::placeholder {
+  color: var(--px-text-muted) !important;
+}
+.ant-input-affix-wrapper-focused,
+.ant-input:focus,
+.ant-picker-focused,
+.ant-select-focused .ant-select-selector {
+  border-color: var(--px-brand) !important;
+  box-shadow: 0 0 0 2px var(--px-brand-soft) !important;
+}
+
+/* Tag */
+.ant-tag {
+  border-radius: var(--px-radius-sm) !important;
+  font-weight: var(--px-weight-medium) !important;
+  font-size: var(--px-text-xs) !important;
+  padding: 2px 8px !important;
+  border: 1px solid transparent !important;
+  line-height: 1.5 !important;
+}
+
+/* Button */
+.ant-btn {
+  font-weight: var(--px-weight-medium) !important;
+  border-radius: var(--px-radius-sm) !important;
+  transition: var(--px-transition-base);
+}
+.ant-btn-primary {
+  box-shadow: none !important;
+}
+.ant-btn-primary:hover {
+  box-shadow: 0 0 0 3px var(--px-brand-soft) !important;
+}
+
+/* Menu (sidebar) */
+.ant-menu-dark,
+.ant-pro-sider-menu,
+.ant-menu.ant-menu-dark {
+  background: var(--px-bg-surface) !important;
+}
+.ant-menu-dark .ant-menu-item,
+.ant-menu-dark .ant-menu-submenu-title {
+  color: var(--px-text-secondary) !important;
+  border-radius: var(--px-radius-sm);
+}
+.ant-menu-dark .ant-menu-item:hover,
+.ant-menu-dark .ant-menu-submenu-title:hover {
+  background: var(--px-bg-hover) !important;
+  color: var(--px-text-primary) !important;
+}
+.ant-menu-dark .ant-menu-item-selected {
+  background: var(--px-brand-soft) !important;
+  color: var(--px-brand) !important;
+  font-weight: var(--px-weight-medium) !important;
+}
+.ant-menu-dark .ant-menu-item-selected::after {
+  display: none !important;
+}
+
+/* Divider */
+.ant-divider {
+  border-color: var(--px-border-subtle) !important;
+}
+
+/* Form labels */
+.ant-form-item-label > label {
+  color: var(--px-text-secondary) !important;
+  font-weight: var(--px-weight-medium) !important;
+}
+
+/* Empty */
+.ant-empty-description {
+  color: var(--px-text-tertiary) !important;
+}
+
+/* Typography */
+.ant-typography {
+  color: var(--px-text-primary) !important;
+}
+
+/* Message / notification */
+.ant-message-notice-content {
+  background: var(--px-bg-surface-overlay) !important;
+  color: var(--px-text-primary) !important;
+  border: 1px solid var(--px-border) !important;
+  box-shadow: var(--px-shadow-lg) !important;
+}
+
+/* ------------------------------------------------------------------
+ * Utility classes used throughout pages
+ * ------------------------------------------------------------------ */
+.px-page {
+  padding: var(--px-page-padding);
+  max-width: var(--px-page-max-width);
+  margin: 0 auto;
+}
+
+.px-text-primary {
+  color: var(--px-text-primary);
+}
+.px-text-secondary {
+  color: var(--px-text-secondary);
+}
+.px-text-tertiary {
+  color: var(--px-text-tertiary);
+}
+.px-text-muted {
+  color: var(--px-text-muted);
+}
+
+.px-row {
+  display: flex;
+  align-items: center;
+}
+.px-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.px-gap-1 { gap: var(--px-space-1); }
+.px-gap-2 { gap: var(--px-space-2); }
+.px-gap-3 { gap: var(--px-space-3); }
+.px-gap-4 { gap: var(--px-space-4); }
+.px-gap-5 { gap: var(--px-space-5); }
+.px-gap-6 { gap: var(--px-space-6); }
+
+/* ------------------------------------------------------------------
+ * Print / high-contrast fallbacks skipped for now.
+ * ------------------------------------------------------------------ */

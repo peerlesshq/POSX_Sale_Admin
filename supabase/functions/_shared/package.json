@@ -1,0 +1,45 @@
+{
+  "name": "@posx/backend-core",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Shared backend modules for POSX: DB client, repositories, rebuilders. Imported by seed scripts and (in Phase 4) Supabase Edge Functions.",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "import": "./src/index.ts",
+      "default": "./src/index.ts"
+    },
+    "./db": {
+      "types": "./src/db/index.ts",
+      "import": "./src/db/index.ts",
+      "default": "./src/db/index.ts"
+    },
+    "./repos": {
+      "types": "./src/repos/index.ts",
+      "import": "./src/repos/index.ts",
+      "default": "./src/repos/index.ts"
+    },
+    "./rebuilders": {
+      "types": "./src/rebuilders/index.ts",
+      "import": "./src/rebuilders/index.ts",
+      "default": "./src/rebuilders/index.ts"
+    }
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@posx/config": "workspace:*",
+    "@posx/domain-rules": "workspace:*",
+    "@posx/shared-types": "workspace:*",
+    "@posx/shared-utils": "workspace:*",
+    "ethers": "^6.11.0",
+    "postgres": "^3.4.3"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}

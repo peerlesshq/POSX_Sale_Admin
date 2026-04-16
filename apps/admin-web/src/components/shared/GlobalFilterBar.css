@@ -1,0 +1,88 @@
+/* GlobalFilterBar */
+
+.px-gfb {
+  background: var(--px-bg-surface);
+  border: 1px solid var(--px-border);
+  border-radius: var(--px-radius-md);
+  padding: 14px 16px;
+  margin-bottom: 18px;
+}
+
+.px-gfb__row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.px-gfb__row--time {
+  justify-content: space-between;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed var(--px-border-subtle);
+  margin-bottom: 12px;
+}
+
+.px-gfb__row--facets {
+  gap: 14px;
+}
+
+.px-gfb__actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.px-gfb__action {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px;
+  background: transparent;
+  border: 1px solid var(--px-border);
+  border-radius: var(--px-radius-sm);
+  color: var(--px-text-secondary);
+  font-size: 12px;
+  cursor: pointer;
+  transition: all var(--px-transition-fast);
+}
+.px-gfb__action:hover {
+  background: var(--px-bg-hover);
+  color: var(--px-text-primary);
+  border-color: var(--px-border-strong);
+}
+
+.px-gfb__field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 160px;
+}
+.px-gfb__field--range {
+  min-width: 220px;
+}
+
+.px-gfb__label {
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--px-text-tertiary);
+}
+
+.px-gfb__input,
+.px-gfb__select {
+  width: 100%;
+}
+
+.px-gfb__amount {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.px-gfb__amount-input {
+  flex: 1;
+  min-width: 80px;
+}
+.px-gfb__amount-sep {
+  color: var(--px-text-tertiary);
+}

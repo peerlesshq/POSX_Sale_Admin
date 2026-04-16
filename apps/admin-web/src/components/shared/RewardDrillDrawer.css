@@ -1,0 +1,202 @@
+/* RewardDrillDrawer */
+
+.px-drill-drawer .ant-drawer-body {
+  padding: 0;
+}
+
+.px-drill {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 20px 22px 28px 22px;
+  background: var(--px-bg-surface);
+}
+
+.px-drill__header {
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--px-border-subtle);
+}
+
+.px-drill__eyebrow {
+  margin-bottom: 6px;
+}
+
+.px-drill__title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--px-text-primary);
+  margin-bottom: 4px;
+}
+
+.px-drill__sub {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  color: var(--px-text-tertiary);
+}
+.px-drill__sub-label {
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.px-drill__sub-value {
+  font-family: var(--px-font-mono);
+  color: var(--px-text-secondary);
+}
+
+.px-drill__kpis {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.px-drill-kpi {
+  padding: 10px 12px 8px 12px;
+  background: var(--px-bg-inset);
+  border: 1px solid var(--px-border);
+  border-left-width: 3px;
+  border-radius: var(--px-radius-sm);
+}
+.px-drill-kpi--neutral {
+  border-left-color: var(--px-brand);
+}
+.px-drill-kpi--danger {
+  border-left-color: var(--px-status-err);
+}
+.px-drill-kpi--success {
+  border-left-color: var(--px-status-ok);
+}
+.px-drill-kpi__head {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10px;
+  color: var(--px-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 4px;
+}
+.px-drill-kpi__value {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--px-text-primary);
+  line-height: 1.1;
+}
+.px-drill-kpi__sub {
+  font-size: 10.5px;
+  color: var(--px-text-tertiary);
+  margin-top: 2px;
+}
+
+.px-drill__section-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+}
+
+.px-drill__code {
+  font-family: var(--px-font-mono);
+  font-size: 10.5px;
+  color: var(--px-text-tertiary);
+}
+
+.px-drill__reason {
+  font-size: 11px;
+  color: var(--px-status-warn);
+  font-weight: 500;
+}
+
+.px-drill__contribs {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--px-border);
+  border-radius: var(--px-radius-sm);
+  overflow: hidden;
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.px-drill__contrib-head,
+.px-drill__contrib-row {
+  display: grid;
+  grid-template-columns: 1.4fr 0.5fr 1fr;
+  gap: 10px;
+  padding: 8px 12px;
+  font-size: 11.5px;
+  align-items: center;
+}
+
+.px-drill__contrib-head {
+  background: var(--px-bg-inset);
+  color: var(--px-text-tertiary);
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+  border-bottom: 1px solid var(--px-border-subtle);
+}
+
+.px-drill__contrib-row {
+  border-bottom: 1px solid var(--px-border-subtle);
+  color: var(--px-text-secondary);
+}
+.px-drill__contrib-row:last-child {
+  border-bottom: none;
+}
+
+.px-drill__contrib-wallet {
+  font-family: var(--px-font-mono);
+  color: var(--px-text-primary);
+}
+.px-drill__contrib-depth {
+  color: var(--px-text-tertiary);
+}
+.px-drill__contrib-amount {
+  text-align: right;
+  color: var(--px-text-primary);
+  font-weight: 500;
+}
+
+.px-drill__empty {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 40px 22px;
+  color: var(--px-text-tertiary);
+  font-size: 12px;
+}
+
+.px-drill-kind {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 10px;
+  border-radius: 10px;
+  font-size: 10.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border: 1px solid var(--px-border);
+}
+.px-drill-kind--direct {
+  background: rgba(91, 91, 255, 0.14);
+  color: var(--px-text-link);
+  border-color: rgba(91, 91, 255, 0.3);
+}
+.px-drill-kind--team {
+  background: rgba(16, 185, 129, 0.14);
+  color: var(--px-status-ok);
+  border-color: rgba(16, 185, 129, 0.3);
+}
+.px-drill-kind--equal_level {
+  background: rgba(245, 158, 11, 0.14);
+  color: var(--px-status-warn);
+  border-color: rgba(245, 158, 11, 0.3);
+}
+.px-drill-kind--burn {
+  background: rgba(244, 63, 94, 0.14);
+  color: var(--px-status-err);
+  border-color: rgba(244, 63, 94, 0.3);
+}

@@ -1,0 +1,66 @@
+.px-filter-bar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 14px;
+  margin-bottom: 16px;
+  background: var(--px-bg-surface);
+  border: 1px solid var(--px-border);
+  border-radius: var(--px-radius-md);
+  flex-wrap: wrap;
+}
+
+/* Bare variant — used inside SectionCard filter slot so we don't
+   double up on borders / backgrounds / margins. */
+.px-filter-bar--bare {
+  padding: 0;
+  margin-bottom: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+}
+
+.px-filter-bar__left {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+  flex-wrap: wrap;
+}
+
+.px-filter-bar__icon {
+  color: var(--px-text-tertiary);
+  font-size: 14px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.px-filter-bar__slots {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.px-filter-bar__right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.px-filter-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.px-filter-field__label {
+  font-size: 11px;
+  color: var(--px-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-weight: 500;
+}

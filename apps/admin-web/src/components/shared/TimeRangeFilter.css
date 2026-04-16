@@ -1,0 +1,51 @@
+/* TimeRangeFilter */
+
+.px-time-range {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.px-time-range__seg {
+  background: var(--px-bg-surface) !important;
+  border: 1px solid var(--px-border);
+  border-radius: var(--px-radius-md);
+  padding: 3px;
+}
+
+.px-time-range__seg .ant-segmented-item-label {
+  font-size: 12px;
+  padding: 0 12px;
+  color: var(--px-text-secondary);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.px-time-range__seg .ant-segmented-item-selected {
+  background: var(--px-brand-soft) !important;
+  color: var(--px-text-link) !important;
+}
+
+.px-time-range__seg .ant-segmented-item-selected .ant-segmented-item-label {
+  color: var(--px-text-link);
+  font-weight: 600;
+}
+
+.px-time-range__picker {
+  min-width: 260px;
+}
+
+.px-time-range__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: var(--px-text-tertiary);
+  font-variant-numeric: tabular-nums;
+  padding: 4px 10px;
+  background: var(--px-bg-inset);
+  border: 1px solid var(--px-border-subtle);
+  border-radius: 10px;
+  letter-spacing: 0.02em;
+}

@@ -1,0 +1,6 @@
+[api]
+enabled = true
+
+[functions.api]
+verify_jwt = false
+import_map = "./functions/import_map.json"

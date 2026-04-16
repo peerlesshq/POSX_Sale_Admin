@@ -1,0 +1,43 @@
+.px-row-action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--px-radius-sm);
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--px-text-tertiary);
+  cursor: pointer;
+  transition: var(--px-transition-base);
+}
+
+.px-row-action-btn:hover {
+  background: var(--px-bg-hover);
+  color: var(--px-text-primary);
+  border-color: var(--px-border);
+}
+
+.px-row-action-btn--sm {
+  width: 24px;
+  height: 24px;
+}
+
+.px-row-action__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.px-row-action__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--px-text-tertiary);
+}
+
+/* Danger items inherit AntD's .ant-dropdown-menu-item-danger styling,
+   but we nudge the icon color so it reads red too. */
+.ant-dropdown-menu-item-danger .px-row-action__icon {
+  color: var(--px-status-err);
+}

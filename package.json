@@ -1,0 +1,45 @@
+{
+  "name": "posx-token-sale",
+  "version": "0.1.0",
+  "private": true,
+  "description": "POSX Token Sale System — monorepo root (Phase 2 scaffold)",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=18.18",
+    "pnpm": ">=8"
+  },
+  "packageManager": "pnpm@8.15.0",
+  "scripts": {
+    "typecheck": "pnpm -r --parallel run typecheck",
+    "lint": "eslint . --ext .ts,.tsx --max-warnings=75",
+    "lint:fix": "eslint . --ext .ts,.tsx --fix",
+    "format": "prettier --write \"**/*.{ts,tsx,js,cjs,json,yml,yaml}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,cjs,json,yml,yaml}\"",
+    "clean": "pnpm -r --parallel exec rimraf dist .turbo *.tsbuildinfo",
+    "build": "pnpm -r --parallel run build",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "db:migrate": "tsx scripts/migrate.ts",
+    "db:seed": "tsx scripts/seed.ts",
+    "db:bootstrap": "pnpm db:migrate && pnpm db:seed",
+    "seed:staging": "tsx scripts/seed-staging.ts",
+    "reset:staging": "tsx scripts/reset-staging.ts",
+    "verify:env": "tsx scripts/verify-env.ts"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/node": "^20.11.0",
+    "@typescript-eslint/eslint-plugin": "^6.19.0",
+    "@typescript-eslint/parser": "^6.19.0",
+    "@vitest/coverage-v8": "^1.4.0",
+    "bcrypt": "^5.1.1",
+    "esbuild": "^0.28.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.2.4",
+    "rimraf": "^5.0.5",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3",
+    "vitest": "^1.4.0"
+  }
+}

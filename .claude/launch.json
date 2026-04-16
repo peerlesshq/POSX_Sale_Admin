@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "user-web",
+      "runtimeExecutable": "corepack",
+      "runtimeArgs": ["pnpm", "--filter", "@posx/user-web", "run", "dev"],
+      "port": 5180
+    },
+    {
+      "name": "admin-web",
+      "runtimeExecutable": "corepack",
+      "runtimeArgs": ["pnpm", "--filter", "@posx/admin-web", "run", "dev"],
+      "port": 5181
+    }
+  ]
+}

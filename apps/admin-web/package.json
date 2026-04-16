@@ -1,0 +1,41 @@
+{
+  "name": "@posx/admin-web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "POSX admin panel — operations, config, settlement, reports, system.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview --port 3001",
+    "typecheck": "tsc -b --noEmit"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^5.3.0",
+    "@ant-design/pro-components": "^2.6.49",
+    "@fontsource-variable/inter": "^5.2.8",
+    "@fontsource/jetbrains-mono": "^5.2.8",
+    "@posx/api-contracts": "workspace:*",
+    "@posx/shared-types": "workspace:*",
+    "@posx/shared-utils": "workspace:*",
+    "@tanstack/react-query": "^5.17.0",
+    "antd": "^5.13.2",
+    "cmdk": "^1.1.1",
+    "dayjs": "^1.11.10",
+    "decimal.js": "^10.4.3",
+    "echarts": "^6.0.0",
+    "echarts-for-react": "^3.0.6",
+    "framer-motion": "^12.38.0",
+    "lucide-react": "^1.8.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.22.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.55",
+    "@types/react-dom": "^18.2.19",
+    "@vitejs/plugin-react": "^4.2.1",
+    "typescript": "^5.3.3",
+    "vite": "^5.1.0"
+  }
+}

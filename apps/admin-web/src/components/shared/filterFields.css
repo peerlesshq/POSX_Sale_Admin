@@ -1,0 +1,43 @@
+/* Unified filter field styles — shared by FilterBar and GlobalFilterBar */
+
+.px-ff {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 160px;
+}
+
+.px-ff__label {
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--px-text-tertiary);
+}
+
+.px-ff__hint {
+  font-size: 11px;
+  color: var(--px-text-muted);
+  margin-top: 2px;
+}
+
+.px-ff__input,
+.px-ff__select {
+  width: 100%;
+}
+
+.px-ff__amount {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.px-ff__amount-input {
+  flex: 1;
+  min-width: 80px;
+}
+
+.px-ff__amount-sep {
+  color: var(--px-text-tertiary);
+  font-weight: 600;
+}

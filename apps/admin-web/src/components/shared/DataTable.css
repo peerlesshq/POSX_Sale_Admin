@@ -1,0 +1,25 @@
+.px-data-table {
+  background: var(--px-bg-surface);
+  border: 1px solid var(--px-border);
+  border-radius: var(--px-radius-lg);
+  box-shadow: var(--px-shadow-sm);
+  overflow: hidden;
+}
+
+.px-data-table__toolbar {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--px-border-subtle);
+  background: var(--px-bg-sunken);
+}
+
+.px-data-table .ant-table {
+  border-radius: 0 !important;
+}
+.px-data-table .ant-pagination {
+  padding: 0 16px 14px !important;
+  margin: 0 !important;
+}
+.px-data-table--dense .ant-table-cell {
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
+}

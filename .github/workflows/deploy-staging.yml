@@ -1,0 +1,104 @@
+name: Deploy Staging
+
+on:
+  push:
+    branches: [develop]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-staging
+  cancel-in-progress: false
+
+env:
+  SUPABASE_PROJECT_REF: kzznfhtcevzysztzahzl
+
+jobs:
+  deploy-edge-functions:
+    name: Deploy Edge Functions
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: supabase/setup-cli@v1
+        with:
+          version: latest
+
+      - name: Link project
+        run: supabase link --project-ref ${{ env.SUPABASE_PROJECT_REF }}
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+
+      - name: Deploy api function
+        run: supabase functions deploy api --no-verify-jwt
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+
+  deploy-admin-web:
+    name: Deploy Admin Web
+    runs-on: ubuntu-latest
+    needs: [deploy-edge-functions]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 8
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Build admin-web
+        run: pnpm --filter admin-web exec vite build
+        env:
+          VITE_ADMIN_APP_ENV: staging
+          VITE_ADMIN_API_BASE_URL: https://${{ env.SUPABASE_PROJECT_REF }}.supabase.co/functions/v1/api/v1
+          VITE_USE_MOCK_API: "false"
+          VITE_ENABLE_ADMIN_DEV_LOGIN: "false"
+
+      - name: Deploy to Vercel
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_ADMIN_PROJECT_ID }}
+          working-directory: apps/admin-web
+          vercel-args: --prod ./dist
+
+  deploy-user-web:
+    name: Deploy User Web
+    runs-on: ubuntu-latest
+    needs: [deploy-edge-functions]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 8
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Build user-web
+        run: pnpm --filter user-web exec vite build
+        env:
+          VITE_APP_ENV: staging
+          VITE_API_BASE_URL: https://${{ env.SUPABASE_PROJECT_REF }}.supabase.co/functions/v1/api/v1
+          VITE_USE_MOCK_API: "false"
+          VITE_ENABLE_DEV_AUTH_BYPASS: "false"
+
+      - name: Deploy to Vercel
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_USER_PROJECT_ID }}
+          working-directory: apps/user-web
+          vercel-args: --prod ./dist

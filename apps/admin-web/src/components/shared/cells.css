@@ -1,0 +1,154 @@
+.px-hash-cell {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 6px;
+  border-radius: var(--px-radius-sm);
+  background: var(--px-bg-inset);
+  border: 1px solid var(--px-border-subtle);
+  font-size: 12px;
+  max-width: 180px;
+}
+
+.px-hash-cell__text {
+  color: var(--px-text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.px-hash-cell__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  color: var(--px-text-tertiary);
+  cursor: pointer;
+  border-radius: 3px;
+  transition: color var(--px-transition-fast), background var(--px-transition-fast);
+}
+
+.px-hash-cell__btn:hover {
+  color: var(--px-brand);
+  background: var(--px-brand-soft);
+}
+
+/* ------------------------------------------------------------------
+ * ErrorCell
+ * ------------------------------------------------------------------ */
+.px-error-cell {
+  display: inline-flex;
+  max-width: 360px;
+}
+
+.px-error-cell__text {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 8px;
+  border: 1px solid var(--px-status-err-border);
+  background: var(--px-status-err-soft);
+  border-radius: var(--px-radius-sm);
+  font-family: var(--px-font-mono);
+  font-size: 11.5px;
+  color: var(--px-status-err);
+  cursor: default;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.px-error-cell__text--clickable {
+  cursor: pointer;
+}
+
+.px-error-cell__text--clickable:hover {
+  background: color-mix(in srgb, var(--px-status-err) 18%, transparent);
+  border-color: var(--px-status-err);
+}
+
+.px-error-cell__text[disabled] {
+  cursor: default;
+}
+
+.px-error-cell__icon {
+  flex-shrink: 0;
+  opacity: 0.8;
+}
+
+.px-error-cell__full {
+  font-family: var(--px-font-mono);
+  font-size: 12px;
+  color: var(--px-text-primary);
+  background: var(--px-bg-inset);
+  border: 1px solid var(--px-border);
+  border-radius: var(--px-radius-sm);
+  padding: 12px 14px;
+  max-height: 80vh;
+  overflow: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+  line-height: 1.6;
+}
+
+/* ------------------------------------------------------------------
+ * ThresholdCell
+ * ------------------------------------------------------------------ */
+.px-threshold-cell {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-variant-numeric: tabular-nums;
+}
+
+.px-threshold-cell__dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 2px color-mix(in srgb, currentColor 18%, transparent);
+}
+
+.px-threshold-cell__suffix {
+  color: var(--px-text-tertiary);
+  font-size: 11px;
+}
+
+.px-threshold-cell--ok {
+  color: var(--px-status-ok);
+}
+.px-threshold-cell--ok .px-threshold-cell__dot {
+  background: var(--px-status-ok);
+}
+
+.px-threshold-cell--warn {
+  color: var(--px-status-warn);
+}
+.px-threshold-cell--warn .px-threshold-cell__dot {
+  background: var(--px-status-warn);
+}
+
+.px-threshold-cell--err {
+  color: var(--px-status-err);
+}
+.px-threshold-cell--err .px-threshold-cell__dot {
+  background: var(--px-status-err);
+}
+
+/* ------------------------------------------------------------------
+ * RoleBadge
+ * ------------------------------------------------------------------ */
+.px-role-badge {
+  font-size: 11px !important;
+  padding: 2px 8px !important;
+  display: inline-flex !important;
+  align-items: center;
+  gap: 4px;
+  font-weight: 500 !important;
+}

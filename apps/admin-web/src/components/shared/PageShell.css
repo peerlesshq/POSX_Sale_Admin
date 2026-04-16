@@ -1,0 +1,30 @@
+.px-page-shell {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.px-page-shell--gap-sm {
+  gap: var(--px-space-3);
+}
+
+.px-page-shell--gap-md {
+  gap: var(--px-space-4);
+}
+
+.px-page-shell--gap-lg {
+  gap: var(--px-space-6);
+}
+
+.px-page-shell--normal {
+  max-width: var(--px-page-max-width);
+}
+
+.px-page-shell--wide {
+  max-width: calc(var(--px-page-max-width) + 200px);
+}
+
+.px-page-shell--none {
+  max-width: none;
+}

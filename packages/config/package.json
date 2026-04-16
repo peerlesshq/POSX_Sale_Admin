@@ -1,0 +1,38 @@
+{
+  "name": "@posx/config",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Environment variable loader and ConfigResolver skeleton (interface + scope selection). Implementation is wired in Phase 4.",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "import": "./src/index.ts",
+      "default": "./src/index.ts"
+    },
+    "./env": {
+      "types": "./src/env/index.ts",
+      "import": "./src/env/index.ts",
+      "default": "./src/env/index.ts"
+    },
+    "./config-resolver": {
+      "types": "./src/config-resolver/index.ts",
+      "import": "./src/config-resolver/index.ts",
+      "default": "./src/config-resolver/index.ts"
+    }
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@posx/domain-rules": "workspace:*",
+    "@posx/shared-types": "workspace:*",
+    "@posx/shared-utils": "workspace:*",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}

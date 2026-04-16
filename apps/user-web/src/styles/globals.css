@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light dark;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+/* ------------------------------------------------------------------
+ * Skeleton shimmer
+ * ------------------------------------------------------------------ */
+.px-skeleton::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.08) 50%,
+    transparent
+  );
+  animation: px-skeleton-shimmer 1.6s ease-in-out infinite;
+}
+
+html:not(.dark) .px-skeleton::after {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(15, 23, 42, 0.06) 50%,
+    transparent
+  );
+}
+
+@keyframes px-skeleton-shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .px-skeleton::after {
+    animation: none;
+  }
+}
