@@ -101,22 +101,22 @@ export function BuyPage() {
       setStep('awaiting_tx');
     },
     onError: (err) => {
-      setError(err instanceof Error ? err.message : 'Failed to create order');
+      setError(err instanceof Error ? err.message : t(locale, 'buy.create_failed', 'Failed to create order'));
       setStep('failed');
     },
   });
 
   const attachTx = useMutation({
     mutationFn: async () => {
-      if (!orderId) throw new Error('Order not created');
-      if (!txHash) throw new Error('Enter tx hash');
+      if (!orderId) throw new Error(t(locale, 'buy.create_failed', 'Order not created'));
+      if (!txHash) throw new Error(t(locale, 'buy.step.tx_hash_placeholder', 'Enter tx hash'));
       return api.attachPurchaseTx(orderId, { purchase_tx_hash: txHash });
     },
     onSuccess: () => {
       setStep('confirmed');
     },
     onError: (err) => {
-      setError(err instanceof Error ? err.message : 'Failed to attach tx');
+      setError(err instanceof Error ? err.message : t(locale, 'buy.attach_failed', 'Failed to attach tx'));
       setStep('failed');
     },
   });
@@ -136,7 +136,7 @@ export function BuyPage() {
     },
     onError: (err) => {
       setError(
-        err instanceof Error ? err.message : 'Recovery failed — please contact support',
+        err instanceof Error ? err.message : t(locale, 'buy.recovery_failed', 'Recovery failed — please contact support'),
       );
     },
   });

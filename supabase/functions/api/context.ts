@@ -38,16 +38,33 @@ import {
   type HandlerServices,
 } from '@posx/backend-core';
 
+/**
+ * Resolve the environment variable source for the current runtime.
+ * - Deno (Supabase Edge): `Deno.env.toObject()`
+ * - Node.js (tests/local): `process.env`
+ * - Fallback: empty object (will cause loadServerEnv to throw)
+ */
+declare const Deno: { env?: { toObject(): Record<string, string> } } | undefined;
+
+function getEnvSource(): Record<string, string | undefined> {
+  // Deno runtime (Supabase Edge Functions)
+  if (typeof Deno !== 'undefined' && Deno?.env?.toObject) {
+    return Deno.env.toObject();
+  }
+  // Node.js runtime (local dev, tests)
+  if (typeof process !== 'undefined' && process.env) {
+    return process.env as Record<string, string | undefined>;
+  }
+  return {};
+}
+
 let cachedClient: PostgresJsClient | null = null;
 let envValidated = false;
 
 function getDbClient(): PostgresJsClient {
   if (cachedClient) return cachedClient;
   const env = loadServerEnv(
-    (typeof process !== 'undefined' && process.env ? process.env : {}) as Record<
-      string,
-      string | undefined
-    >,
+    getEnvSource(),
   );
   cachedClient = new PostgresJsClient({ connectionString: env.SUPABASE_DB_URL });
   return cachedClient;
@@ -96,10 +113,7 @@ export function buildHandlerContext(input: BuildContextInput): HandlerContext {
   }
 
   const env = loadServerEnv(
-    (typeof process !== 'undefined' && process.env ? process.env : {}) as Record<
-      string,
-      string | undefined
-    >,
+    getEnvSource(),
   );
   const db = getDbClient();
   const requestId = generateRequestId();

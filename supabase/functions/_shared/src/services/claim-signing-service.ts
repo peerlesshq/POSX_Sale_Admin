@@ -43,7 +43,7 @@ export class ClaimSigningService {
         `claim order already in status ${input.order.status}`,
       );
     }
-    const ok = verifyWalletSignature({
+    const ok = await verifyWalletSignature({
       message: input.messageThatWasSigned,
       signature: input.signature,
       expectedWalletAddress: input.wallet,

@@ -9,6 +9,7 @@
  */
 import type { EChartsOption } from 'echarts';
 
+import { t } from '../../lib/i18n';
 import { chartPalette, cssVar } from '../../theme/tokens';
 
 const palette = () => chartPalette();
@@ -265,8 +266,8 @@ export function buildTreeOption(opts: {
         if (!data) return '';
         return `
           <div style="font-family:var(--px-font-mono);font-size:11px;">${(data.walletAddress ?? '').slice(0, 10)}…</div>
-          <div style="font-size:11px;margin-top:4px;color:var(--px-text-secondary);">Direct: ${data.directCount ?? 0}</div>
-          <div style="font-size:11px;color:var(--px-text-secondary);">Team: ${data.teamSize ?? 0}</div>
+          <div style="font-size:11px;margin-top:4px;color:var(--px-text-secondary);">${t('network.team.node.direct_count', 'Direct')}: ${data.directCount ?? 0}</div>
+          <div style="font-size:11px;color:var(--px-text-secondary);">${t('network.team.node.team_size', 'Team')}: ${data.teamSize ?? 0}</div>
         `;
       },
     },

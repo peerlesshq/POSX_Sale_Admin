@@ -81,7 +81,7 @@ export class WalletVerifyService {
       nonce: input.nonce,
       issuedAt: this.clock.nowIso(),
     });
-    const signatureOk = verifyWalletSignature({
+    const signatureOk = await verifyWalletSignature({
       message,
       signature: input.signature,
       expectedWalletAddress: input.walletAddress,

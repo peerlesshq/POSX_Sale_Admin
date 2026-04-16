@@ -74,7 +74,7 @@ import {
   formatUsdt,
   toNumber,
 } from '../../lib/format';
-import { t } from '../../lib/i18n';
+import { t, tp } from '../../lib/i18n';
 
 type AnyRow = Record<string, unknown>;
 
@@ -1171,8 +1171,8 @@ function isLoadingOrEmpty(loading: boolean, count: number): boolean {
 
 function relativeSeconds(ts: number): string {
   const secs = Math.max(0, Math.floor((Date.now() - ts) / 1000));
-  if (secs < 5) return 'just now';
-  if (secs < 60) return `${secs}s ago`;
-  if (secs < 3600) return `${Math.floor(secs / 60)}m ago`;
-  return `${Math.floor(secs / 3600)}h ago`;
+  if (secs < 5) return t('time.just_now', 'just now');
+  if (secs < 60) return tp('time.seconds_ago', { n: secs });
+  if (secs < 3600) return tp('time.minutes_ago', { n: Math.floor(secs / 60) });
+  return tp('time.hours_ago', { n: Math.floor(secs / 3600) });
 }

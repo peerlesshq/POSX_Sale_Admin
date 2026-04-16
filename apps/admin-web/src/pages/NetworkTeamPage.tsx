@@ -523,7 +523,7 @@ function NetworkNodeSummary({
     <div>
       <div className="ntp-summary__head">
         <WalletCell value={node.walletAddress} head={14} tail={10} />
-        {node.isPeer && <Tag color="gold">Peer</Tag>}
+        {node.isPeer && <Tag color="gold">{t('network.team.peer', 'Peer')}</Tag>}
         <a
           style={{ marginLeft: 'auto', fontSize: 12 }}
           onClick={() => onOpenUser(node.walletAddress)}

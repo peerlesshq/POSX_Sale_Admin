@@ -204,5 +204,21 @@
   "dev.mock_api_badge": "模拟接口",
   "error.boundary.title": "出现未预期的错误",
   "error.boundary.message": "页面遇到未处理的错误。请刷新重试。",
-  "error.boundary.reload": "刷新"
+  "error.boundary.reload": "刷新",
+  "buy.step.failed": "购买失败",
+  "buy.retry": "重新开始",
+  "buy.recover": "用交易哈希恢复",
+  "buy.create_failed": "创建订单失败",
+  "buy.attach_failed": "提交交易失败",
+  "buy.recovery_failed": "恢复失败 — 请联系客服",
+  "restricted.team": "您的账户已受限 — 团队数据可能暂时不可用。",
+  "restricted.invite": "邀请已禁用",
+  "restricted.invite.long": "您的账户当前受限。请联系客服解决后再邀请新用户。",
+  "status.active": "正常",
+  "wallet.no_wallet": "未检测到钱包，请安装 TP Wallet 或 MetaMask。",
+  "wallet.no_account": "未找到钱包账户",
+  "wallet.sign_failed": "登录失败",
+  "claim.blocked": "领取功能暂不可用",
+  "claim.failed": "领取失败 — 请稍后重试",
+  "claim.invalid_response": "领取响应异常"
 }

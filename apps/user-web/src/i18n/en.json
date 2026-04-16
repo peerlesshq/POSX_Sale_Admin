@@ -204,5 +204,21 @@
   "dev.mock_api_badge": "Mock API",
   "error.boundary.title": "Unexpected error",
   "error.boundary.message": "The page hit an unexpected error. Reload to continue.",
-  "error.boundary.reload": "Reload"
+  "error.boundary.reload": "Reload",
+  "buy.step.failed": "Purchase failed",
+  "buy.retry": "Start over",
+  "buy.recover": "Recover with tx hash",
+  "buy.create_failed": "Failed to create order",
+  "buy.attach_failed": "Failed to attach tx",
+  "buy.recovery_failed": "Recovery failed — please contact support",
+  "restricted.team": "Your account is restricted — team stats may be stale until this is resolved.",
+  "restricted.invite": "Invite disabled",
+  "restricted.invite.long": "Your account is currently restricted. Contact support to resolve the issue before inviting new users.",
+  "status.active": "Active",
+  "wallet.no_wallet": "No wallet detected. Please install TP Wallet or MetaMask.",
+  "wallet.no_account": "No wallet account available",
+  "wallet.sign_failed": "Sign-in failed",
+  "claim.blocked": "Claim is currently unavailable",
+  "claim.failed": "Claim failed — please try again",
+  "claim.invalid_response": "Invalid claim response"
 }

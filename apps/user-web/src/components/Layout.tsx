@@ -33,13 +33,20 @@ import {
   saveSession,
   type StoredSession,
 } from '../lib/session';
-import { NoWalletError, requestWalletAddress, signMessage } from '../lib/wallet';
+import { NoAccountError, NoWalletError, requestWalletAddress, signMessage } from '../lib/wallet';
 import { api } from '../api/endpoints';
 import { DevPersonaPicker } from './DevPersonaPicker';
 import { ThemeToggle } from './ThemeToggle';
 import { BrandLogo } from './brand/BrandLogo';
 import { LandingHero } from './brand/LandingHero';
 import { TrustFooter } from './brand/TrustFooter';
+
+const LOCALE_LABELS: Record<string, string> = {
+  'zh-CN': '简体中文',
+  'zh-TW': '繁體中文',
+  en: 'English',
+  ko: '한국어',
+};
 
 interface NavEntry {
   readonly to: string;
@@ -89,9 +96,11 @@ export function Layout() {
       setSession(stored);
     } catch (err) {
       if (err instanceof NoWalletError) {
-        setError(err.message);
+        setError(t(locale, 'wallet.no_wallet'));
+      } else if (err instanceof NoAccountError) {
+        setError(t(locale, 'wallet.no_account'));
       } else {
-        setError(err instanceof Error ? err.message : 'Sign-in failed');
+        setError(err instanceof Error ? err.message : t(locale, 'wallet.sign_failed'));
       }
     } finally {
       setSigning(false);
@@ -223,7 +232,7 @@ function Header({
           >
             {env.supportedLocales.map((loc) => (
               <option key={loc} value={loc}>
-                {loc}
+                {LOCALE_LABELS[loc] ?? loc}
               </option>
             ))}
           </select>

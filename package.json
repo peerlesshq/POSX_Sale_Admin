@@ -24,7 +24,9 @@
     "db:bootstrap": "pnpm db:migrate && pnpm db:seed",
     "seed:staging": "tsx scripts/seed-staging.ts",
     "reset:staging": "tsx scripts/reset-staging.ts",
-    "verify:env": "tsx scripts/verify-env.ts"
+    "verify:env": "tsx scripts/verify-env.ts",
+    "bundle:edge": "tsx scripts/bundle-edge-function.ts",
+    "restore:edge": "tsx scripts/restore-edge-function.ts"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",

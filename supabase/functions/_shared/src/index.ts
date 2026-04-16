@@ -35,3 +35,4 @@ export * from './services';
 export * from './transitions';
 export * from './chain';
 export * from './jobs';
+export * from './handlers';

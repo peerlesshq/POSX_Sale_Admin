@@ -87,7 +87,7 @@ export function useClaimAll({
 
   const run = useCallback(async () => {
     if (isBlocked) {
-      setError('claim_blocked');
+      setError('claim.blocked');
       setState('failed');
       return;
     }
@@ -98,7 +98,7 @@ export function useClaimAll({
       const messageToSign = String(order['message_to_sign'] ?? '');
       const nextOrderId = String(order['claim_order_id'] ?? '');
       if (!messageToSign || !nextOrderId) {
-        throw new Error('Invalid claim order response');
+        throw new Error('claim.invalid_response');
       }
       setOrderId(nextOrderId);
 
@@ -116,7 +116,7 @@ export function useClaimAll({
       onSuccess?.();
     } catch (err) {
       setState('failed');
-      setError(err instanceof Error ? err.message : 'Claim failed');
+      setError(err instanceof Error ? err.message : 'claim.failed');
     }
   }, [createClaim, signClaim, queryClient, wallet, isBlocked, onSuccess]);
 

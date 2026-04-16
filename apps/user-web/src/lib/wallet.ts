@@ -21,9 +21,18 @@ declare global {
 }
 
 export class NoWalletError extends Error {
+  readonly i18nKey = 'wallet.no_wallet' as const;
   constructor() {
-    super('No injected wallet detected. Please install TP Wallet.');
+    super('wallet.no_wallet');
     this.name = 'NoWalletError';
+  }
+}
+
+export class NoAccountError extends Error {
+  readonly i18nKey = 'wallet.no_account' as const;
+  constructor() {
+    super('wallet.no_account');
+    this.name = 'NoAccountError';
   }
 }
 
@@ -40,7 +49,7 @@ export async function requestWalletAddress(): Promise<string> {
     method: 'eth_requestAccounts',
   })) as string[];
   if (!accounts || accounts.length === 0) {
-    throw new Error('No account available');
+    throw new NoAccountError();
   }
   return accounts[0]!.toLowerCase();
 }

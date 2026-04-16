@@ -210,7 +210,7 @@ export function RewardsPage() {
                 </div>
                 {claim.error && (
                   <div className="mt-2 text-xs text-rose-500 dark:text-rose-400">
-                    {claim.error}
+                    {t(locale, claim.error, claim.error)}
                   </div>
                 )}
                 {totalClaimable.lte(0) && (

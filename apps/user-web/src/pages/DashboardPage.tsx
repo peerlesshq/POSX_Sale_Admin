@@ -225,7 +225,7 @@ export function DashboardPage() {
           </span>
         </div>
         {claim.error && (
-          <div className="mt-2 text-xs text-rose-500 dark:text-rose-400">{claim.error}</div>
+          <div className="mt-2 text-xs text-rose-500 dark:text-rose-400">{t(locale, claim.error, claim.error)}</div>
         )}
         {!hasClaimable && (
           <div className="mt-2 text-xs text-slate-500 dark:text-slate-400">

@@ -8,7 +8,13 @@
  * Source of truth: 08_auth_and_permissions_spec.md §5.3 + Phase 1
  * assumption #5 (the `POSX Login | ...` envelope).
  */
-import { getAddress, verifyMessage } from 'ethers';
+// Lazy-import ethers to avoid blocking edge function boot (~2s cold start).
+// ethers v6 is ~2.5MB and Supabase Edge Functions have a 2-second boot limit.
+let _ethers: typeof import('ethers') | null = null;
+async function getEthers() {
+  if (!_ethers) _ethers = await import('ethers');
+  return _ethers;
+}
 
 export class InvalidWalletSignatureError extends Error {
   constructor(message = 'Invalid wallet signature') {
@@ -23,11 +29,10 @@ export interface SignatureVerificationInput {
   readonly expectedWalletAddress: string;
 }
 
-export function verifyWalletSignature(input: SignatureVerificationInput): boolean {
+export async function verifyWalletSignature(input: SignatureVerificationInput): Promise<boolean> {
   try {
+    const { verifyMessage, getAddress } = await getEthers();
     const recovered = verifyMessage(input.message, input.signature);
-    // `verifyMessage` returns the EIP-55 checksummed form; canonicalise
-    // via `getAddress` before comparing against our lowercase wallet.
     const recoveredLower = getAddress(recovered).toLowerCase();
     const expectedLower = input.expectedWalletAddress.toLowerCase();
     return recoveredLower === expectedLower;
